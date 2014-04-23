@@ -2,6 +2,7 @@ import http.server
 import socketserver
 import threading
 import time
+import os
 
 from commands import commands
 from search import search
@@ -16,6 +17,8 @@ google_domain = ".google.co.uk" # Domain of "the" Google which is opened from yo
 keyword = "Siri" # By default this is siri. You can change this to any other (well recognized) keyword, CASE SENSITIVE!!!
 
 ######################
+
+os.chdir(os.path.dirname(os.path.abspath(__file__))) # Set working directory to path of server.py
 
 class Handler(http.server.SimpleHTTPRequestHandler):
 	def do_HEAD(self):
