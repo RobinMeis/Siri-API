@@ -1,7 +1,7 @@
 Siri-API
 ========
 
-Siri-API is a tool which opens Siri for your own wishes WITHOUT the requirement of a Jailbreak. Basically it is like GoogolPlex but it is much more flexible since you can host it on your own computer. You just say Google and your keyword, by default "Siri" and everything what you say after your keywoard will be redirected to the API.
+Siri-API is a tool which opens Siri for your own wishes WITHOUT the requirement of a Jailbreak. Basically it is like GoogolPlex but it is much more flexible since you can host it on your own computer. You just say Google and your keyword, by default "Siri" and everything what you say after your keyword will be redirected to the API. Of course, using Google without the keyword is still possible.
 
 You need a Linux running computer (i.e. Raspberry Pi) and a Squid Proxy version compiled with SSL support. These versions aren't available from official package sources, so you have to compile it by yourself. You can follow the instructions in the documentation.
 
