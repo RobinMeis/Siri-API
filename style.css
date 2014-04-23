@@ -1,0 +1,56 @@
+body {
+	position:relative;
+	font-family:Helvetica;
+	margin:0px;
+	width:100%;
+}
+
+.header {
+	position:relative;
+	top:0px;
+	left:0px;
+	background-color:#f7f7f7;
+	height:105px;
+	width:100%;
+	border-bottom-style:solid;
+	border-bottom-width:1px;
+	border-bottom-color:#b2b2b2;
+	font-size:60pt;
+}
+
+.header .title {
+	position:relative;
+	top:10px;
+	text-align:center;
+	font-weight:bold;
+}
+
+.message {
+	position:relative;
+	width:100%;
+	display:inline-block;
+	padding-bottom:40px;
+}
+
+.message .style {
+	position:relative;
+	border-radius: 50px;
+	margin:40px;
+	padding-top:15px;
+	padding-bottom:15px;
+	padding-left:40px;
+	padding-right:40px;
+	display:inline-block;
+	max-width:60%;
+	font-size:40pt;
+}
+
+.message .outgoing {
+	float:right;
+	background-color:#00cd47;
+	color:#ffffff;
+}
+
+.message .incoming {
+	background-color:#e5e5ea;
+}
