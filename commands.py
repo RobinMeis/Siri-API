@@ -6,7 +6,7 @@ class commands:
 		self.keywords = []
 		
 		#Add your own KEYWORDS. Please consult the documentation at
-		self.keywords.append({'find': [['*', 'hello', '*', 'fuck you', '*'], 'hello'], 'call': 'hans'})
+		self.keywords.append({'find': [['*', 'hello', '*', 'you', '*'], 'hello'], 'call': 'hans'})
 		self.keywords.append({'find': [['turn', '*', 'lights', '*'], ['turn', '*', 'light', '*'], ['turn', '*', 'lamp', '*'], ['turn', '*', 'lemp', '*'], ['turn', '*', 'late', '*'], ['turn', '*', 'like', '*'],], 'call': 'light'})
 		
 	### Add your commands in this section. Feel free to change EVERYTHING below this comment ###
@@ -40,14 +40,14 @@ class commands:
 		if ((wildcards[0] == "on" or wildcards[0] == "off") and id > -1):
 			html.incoming("Okay, let's turn " + wildcards[0] + " lamp " + wildcards[1])
 			html.send()
-			html.request("http://zimmer:2525/remote/" + wildcards[0] + "?id=" + str(id))
+			html.request("http://zimmer:2525/remote/" + wildcards[0] + "?id=" + str(id)) #Only works in my setup
 		else:
 			html.incoming("No such lamp available")
 			html.send()
 			
 	def timetable(self, q, wildcards):
 		html = document (self.connection)
-		html.redirect("http://zimmer:5000/index.php?component=timetable&resolution=desktop")
+		html.redirect("http://zimmer:5000/index.php?component=timetable&resolution=desktop") #Only works in my setup
 		html.send()
 			
 	def no_action (self, q, wildcards): #Is called if no action found
