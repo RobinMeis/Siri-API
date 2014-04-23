@@ -15,7 +15,6 @@ I tested Siri-API on an iPhone 5S with iOS 7 but it should also work with other 
 
 ##Installation of Squid Proxy
 Since you will need to compile Squid Proxy on your own, you need to install the following packages. On Debian (based) systems you can use the following commands:
-
 sudo apt-get install build-essential
 sudo apt-get install libssl-dev
 
