@@ -25,36 +25,36 @@ In the following instructions I emanate you have downloaded version 3.4.4. If no
 1. Download Squid (I would suggest to do this in your home directory)  
    wget http://www.squid-cache.org/Versions/v3/3.4/squid-3.4.4.tar.gz
    
-2. Extract Squid at the same place
+2. Extract Squid at the same place  
    tar -xvzf squid-3.4.4.tar.gz
    
-3. Change into the extracted directory of squid
+3. Change into the extracted directory of squid  
    cd squid-3.4.4/
    
-4. Compile Squid. Just copy the commands, they are ready to compile Squid with SSL support. Compiling might take a long time. On my Raspberry Pi it took about 6 hours
-   sudo ./configure --prefix=/usr/local/squid --enable-icap-client --enable-ssl --enable-ssl-crtd --with-default-user=squid
-   sudo make all
+4. Compile Squid. Just copy the commands, they are ready to compile Squid with SSL support. Compiling might take a long time. On my Raspberry Pi it took about 6 hours  
+   sudo ./configure --prefix=/usr/local/squid --enable-icap-client --enable-ssl --enable-ssl-crtd --with-default-user=squid  
+   sudo make all  
    sudo make install
    
-5. Create permissions. We compiled squid with default user squid, so we have to add the required user and permissions
-   useradd squid
+5. Create permissions. We compiled squid with default user squid, so we have to add the required user and permissions  
+   useradd squid  
    chown -R squid:squid /usr/local/squid/var/logs/
    
-6. Now you should create the swap directories. This can be done by running
+6. Now you should create the swap directories. This can be done by running  
    /usr/local/squid/sbin/squid -z
    
-7. Next you have to generate the SSL certificates. I won't explain every command, so just copy it!
-   cd /usr/local/squid
-   mkdir ssl_cert
-   cd ssl_cert
+7. Next you have to generate the SSL certificates. I won't explain every command, so just copy it!  
+   cd /usr/local/squid  
+   mkdir ssl_cert  
+   cd ssl_cert  
    openssl req -new -newkey rsa:1024 -days 365 -nodes -x509 -keyout myCA.pem -out myCA.pem
    
 ##Installation of Siri-API
 
-1. To run Siri-API you need to install the Python3 interpreter.
+1. To run Siri-API you need to install the Python3 interpreter.  
    On Debian (based) systems you can do this with running sudo apt-get install python3
    
 2. Download Siri-API
-   sudo apt-get install git # (Again, apt only works on Debian based systems)
+   sudo apt-get install git # (Again, apt only works on Debian based systems)  
    git clone https://github.com/HcDevel/Siri-API
    
