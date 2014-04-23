@@ -6,21 +6,21 @@ You need a Linux running computer (i.e. Raspberry Pi) and a Squid Proxy version 
 You can watch the demo video on ... to see what is possible with Siri-API. I use the program for my home automation system but any other usage is possible. You just have to write your own rules and commands in Python 3. With the easy to use API it is just a game. I also provide a working squid.conf configuration file for usage with the API. If you're already running Squid Proxy for other services you HAVE to change it so, that Squid still works in your environment.
 I tested Siri-API on an iPhone 5S with iOS 7 but it should also work with other iDevices supporting Siri and older iOS versions.
 
-=== System requirements ===
+###System requirements
 - Linux PC (i.e. Raspberry Pi)
 - Squid Proxy with SSL support (see instructions below)
 - Python3 interpreter to run the API's server
 
-=== Installation of Squid Proxy ===
+##Installation of Squid Proxy
 Since you will need to compile Squid Proxy on your own, you need to install the following packages. On Debian (based) systems you can use the following commands:
 
-sudo apt-get install build-essential
+sudo apt-get install build-essential  
 sudo apt-get install libssl-dev
 
 After that you need to install Squid Proxy. You can download the latest version from http://www.squid-cache.org/Versions/. I suggest to use Version 3.4.4 because I've done my sample setup with it. If you use another version you might have to change the configuration file. If you got it running with another version (with and without modifying the sample configuration file), please inform me by open an Issue on GitHub (https://github.com/HcDevel/Siri-API/pulls). Then I will add this version of Squid to the supported versions.
-In the following instructions I emanate you have downloaded version 3.4.4. If not, you have to change the paths in the instructions. This isn't to complicated.
+In the following instructions I emanate you have downloaded version 3.4.4. If not, you have to change the paths in the instructions. This isn't too complicated.
 
-1. Download Squid (I would suggest to do this in you home directory)
+1. Download Squid (I would suggest to do this in your home directory)  
    wget http://www.squid-cache.org/Versions/v3/3.4/squid-3.4.4.tar.gz
    
 2. Extract Squid at the same place
@@ -47,7 +47,7 @@ In the following instructions I emanate you have downloaded version 3.4.4. If no
    cd ssl_cert
    openssl req -new -newkey rsa:1024 -days 365 -nodes -x509 -keyout myCA.pem -out myCA.pem
    
-=== Installation of Siri-API ===
+##Installation of Siri-API
 
 1. To run Siri-API you need to install the Python3 interpreter.
    On Debian (based) systems you can do this with running sudo apt-get install python3
