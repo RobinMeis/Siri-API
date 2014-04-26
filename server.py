@@ -71,6 +71,11 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 			arguments["q"] = arguments["q"].replace('+', ' ')
 			command = commands(self)
 			search(command).search(arguments["q"])
+		else:
+			self.send_header('Content-type', 'text/html')
+			self.send_response(404)
+			self.end_headers()
+			self.wfile.write(bytes('Not found. Please visit <a href="https://github.com/HcDevel/Siri-API/wiki/_pages">https://github.com/HcDevel/Siri-API/wiki/_pages</a>', "utf-8"))
 
 		return
 
