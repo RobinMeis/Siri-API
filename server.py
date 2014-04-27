@@ -52,14 +52,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 		#Decide wether a search or the style.css was requested
 		if (path == "/style.css"):
 			self.document = open('style.css', 'r').read()
-			self.send_header('Content-type', 'text/html')
 			self.send_response(200)
+			self.send_header('Content-type', 'text/html')
 			self.end_headers()
-			try:
-				self.flush_headers()
-				print ("Headers flushed!")
-			except:
-				print ("Headers can't be flushed")
 			self.wfile.write(bytes(self.document, "utf-8"))
 		elif (path == "/proxy.pac"):
 			self.document = open('proxy.pac', 'r').read()
@@ -67,14 +62,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 			self.document = self.document.replace('<google_domain>', google_domain, 1)
 			self.document = self.document.replace('<squid_host>', squid_hostname, 1)
 			self.document = self.document.replace('<squid_port>', str(squid_port), 1)
-			self.send_header('Content-type', 'x-ns-proxy-autoconfig')
 			self.send_response(200)
+			self.send_header('Content-type', 'x-ns-proxy-autoconfig')
 			self.end_headers()
-			try:
-				self.flush_headers()
-				print ("Headers flushed!")
-			except:
-				print ("Headers can't be flushed")
 			self.wfile.write(bytes(self.document, "utf-8"))
 		elif (arguments["q"] != None):
 			arguments["q"] = arguments["q"].replace(keyword + '+', '', 1)
@@ -82,14 +72,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 			command = commands(self)
 			search(command).search(arguments["q"])
 		else:
-			self.send_header('Content-type', 'text/html')
 			self.send_response(404)
+			self.send_header('Content-type', 'text/html')
 			self.end_headers()
-			try:
-				self.flush_headers()
-				print ("Headers flushed!")
-			except:
-				print ("Headers can't be flushed")
 			self.wfile.write(bytes('Not found. Please visit <a href="https://github.com/HcDevel/Siri-API/wiki/_pages">https://github.com/HcDevel/Siri-API/wiki/_pages</a>', "utf-8"))
 
 		return
