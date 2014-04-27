@@ -3,7 +3,8 @@
 # The HTML output shows a chat windows in Apples Messages Style                 #
 # The HTTP output can be used to redirect the browser to another website or app #
 #                                                                               #
-# Please read the documentation at #
+#                      Please read the documentation at                         #
+#  https://github.com/HcDevel/Siri-API/wiki/Customize-commands#use-chat-style   #
 #################################################################################
 
 import urllib.request
