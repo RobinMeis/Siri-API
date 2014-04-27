@@ -55,6 +55,11 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 			self.send_header('Content-type', 'text/html')
 			self.send_response(200)
 			self.end_headers()
+			try:
+				self.connection.flush_headers()
+				print ("Headers flushed!")
+			except:
+				print ("Headers can't be flushed")
 			self.wfile.write(bytes(self.document, "utf-8"))
 		elif (path == "/proxy.pac"):
 			self.document = open('proxy.pac', 'r').read()
@@ -65,6 +70,11 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 			self.send_header('Content-type', 'x-ns-proxy-autoconfig')
 			self.send_response(200)
 			self.end_headers()
+			try:
+				self.connection.flush_headers()
+				print ("Headers flushed!")
+			except:
+				print ("Headers can't be flushed")
 			self.wfile.write(bytes(self.document, "utf-8"))
 		elif (arguments["q"] != None):
 			arguments["q"] = arguments["q"].replace(keyword + '+', '', 1)
@@ -75,6 +85,11 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 			self.send_header('Content-type', 'text/html')
 			self.send_response(404)
 			self.end_headers()
+			try:
+				self.connection.flush_headers()
+				print ("Headers flushed!")
+			except:
+				print ("Headers can't be flushed")
 			self.wfile.write(bytes('Not found. Please visit <a href="https://github.com/HcDevel/Siri-API/wiki/_pages">https://github.com/HcDevel/Siri-API/wiki/_pages</a>', "utf-8"))
 
 		return

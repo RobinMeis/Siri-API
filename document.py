@@ -48,6 +48,11 @@ class document: #Class to generate the (HTML) output
 		self.connection.send_header(self.header[0], self.header[1])
 		self.connection.send_response(self.response)
 		self.connection.end_headers()
+		try:
+			self.connection.flush_headers()
+			print ("Headers flushed!")
+		except:
+			print ("Headers can't be flushed")
 		
 		if (self.response != 302):
 			self.document = self.document.replace ('<replace_with_document_class_dont_remove>', '') #Remove reference mark before sending
