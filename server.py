@@ -56,7 +56,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 			self.send_response(200)
 			self.end_headers()
 			try:
-				self.connection.flush_headers()
+				self.flush_headers()
 				print ("Headers flushed!")
 			except:
 				print ("Headers can't be flushed")
@@ -71,7 +71,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 			self.send_response(200)
 			self.end_headers()
 			try:
-				self.connection.flush_headers()
+				self.flush_headers()
 				print ("Headers flushed!")
 			except:
 				print ("Headers can't be flushed")
@@ -86,7 +86,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 			self.send_response(404)
 			self.end_headers()
 			try:
-				self.connection.flush_headers()
+				self.flush_headers()
 				print ("Headers flushed!")
 			except:
 				print ("Headers can't be flushed")
