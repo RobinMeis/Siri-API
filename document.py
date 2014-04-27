@@ -45,8 +45,8 @@ class document: #Class to generate the (HTML) output
 		return(f.read().decode('utf-8'))
 			
 	def send (self): #Send the answer to the browser
-		self.connection.send_header(self.header[0], self.header[1])
 		self.connection.send_response(self.response)
+		self.connection.send_header(self.header[0], self.header[1])
 		self.connection.end_headers()
 		
 		if (self.response != 302):
