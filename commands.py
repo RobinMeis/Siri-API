@@ -8,7 +8,14 @@ class commands:
         #Add your own KEYWORDS. Please consult the documentation at
         self.keywords.append({'find': [['*', 'hello', '*', 'you', '*'], 'hello'], 'call': 'hans'})
         self.keywords.append({'find': [['turn', '*', 'lights', '*'], ['turn', '*', 'light', '*'], ['turn', '*', 'lamp', '*'], ['turn', '*', 'lemp', '*'], ['turn', '*', 'late', '*'], ['turn', '*', 'like', '*'],], 'call': 'light'})
-        
+    
+    def no_action (self, q, wildcards): #Is called if no action found
+        html = document(self.connection)
+        html.title("Error")
+        html.incoming(q)
+        html.outgoing("Sorry, I don't know how to do that")
+        html.send()
+
     ### Add your commands in this section. Feel free to change EVERYTHING below this comment ###
         
     def hans(self, q, wildcards):
@@ -49,14 +56,3 @@ class commands:
         html = document (self.connection)
         html.redirect("http://zimmer:5000/index.php?component=timetable&resolution=desktop") #Only works in my setup
         html.send()
-            
-    def no_action (self, q, wildcards): #Is called if no action found
-        html = document(self.connection)
-        html.title("Error")
-        html.incoming(q)
-        html.outgoing("Sorry, I don't know how to do that")
-        html.send()
-            
-        
-#test = commands()
-#test.search("turn on light two")
