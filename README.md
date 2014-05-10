@@ -1,4 +1,5 @@
-=== MIGHT NOT WORK! ===
+MIGHT NOT WORK!
+===============
 This release is currently only a snapshot of my latest work on it. It might be a working preview but it also might not work. Please use a stable version instead of this
 
 Siri-API
