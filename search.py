@@ -39,7 +39,6 @@ class search:
                             
                             if (wildcard_end > -1):
                                 wildcards_found[wildcard_counter] = q[wildcard_start:wildcard_end]
-                                print ("Pos: " + str(position + len(wildcards_found)))
                                 wildcard_start = 0
                                 wildcard_end = 0
                             
