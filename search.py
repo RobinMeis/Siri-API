@@ -23,7 +23,7 @@ class search:
                             have_to_follow = False
                             wildcard_start = cursor
                         else:
-                            position = q.find(search)
+                            position = q.find(search, cursor)
                             
                             if (position == cursor):
                                 cursor += len(search) + 1
@@ -43,7 +43,6 @@ class search:
                                 wildcard_end = 0
                             
                             if (keyword[-1] == "*" and keyword[-2] == search):
-                                print (cursor)
                                 wildcards_found[wildcard_counter + 1] = q[cursor:]
                                 wildcard_counter += 1
                                 
