@@ -1,6 +1,6 @@
 #Import required classes
-import siriAPI.server
-import siriAPI.keywords
+from siriAPI.server import server
+from siriAPI.keywords import keywords
 
 #Set keywords
 keywords = keywords()

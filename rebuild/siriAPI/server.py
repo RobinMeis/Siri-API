@@ -20,13 +20,11 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
         self.send_response(200)
         self.send_header("Content-type", "text/html")
         self.end_headers()
-        print ("hi head")
 
     def do_GET(self):
         print (self.keyword)
         parts = self.path.split("?") #Extract requested file and get parameters from path
         path = parts[0]
-        print ("hi get")
         
         #Extract variables from get parameters
         try:
@@ -71,6 +69,12 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
             self.wfile.write(bytes('Not found. Please visit <a href="https://github.com/HcDevel/Siri-API/wiki/_pages">https://github.com/HcDevel/Siri-API/wiki/_pages</a>', "utf-8"))
 
         return
+        
+    #def log_message(self, format, *args): #Disable logging
+    #    pass
+        
+    #def log_error(self, format, *args):
+    #    pass
 
 class server:
     def __init__ (self, keywords=None, squid_hostname=None, google_domain=None, keyword="Siri", port=3030, squid_port=3128):
