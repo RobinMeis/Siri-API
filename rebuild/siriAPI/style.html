@@ -8,9 +8,9 @@
 <script>
 window.addEventListener("load",function() { <!-- Makes window in iOS <= 6 to fullscreen !-->
 	setTimeout(function(){
-		if (!navigator.userAgent.match(/(iPad|iPhone|iPod touch);.*CPU.*OS 7_\d/i)) { <!-- Checks if iOS < 7 is running
-			document.getElementById("ios_scroll_space").style.height = "190px"; <!-- Expands div with id "ios_scroll_space" ... !-->
-			window.scrollTo(0, 1); <!-- ... and scrolls down to hide the status bar !-->
+		if (!navigator.userAgent.match(/(iPad|iPhone|iPod touch);.*CPU.*OS 7_\d/i)) { // Checks if iOS < 7 is running ...
+			document.getElementById("ios_scroll_space").style.height = "190px"; // ... Expands div with id "ios_scroll_space" ...
+			window.scrollTo(0, 1); // ... and scrolls down to hide the status bar !-->
 			}
 	}, 0);
 });
