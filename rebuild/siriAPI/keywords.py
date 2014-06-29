@@ -1,5 +1,6 @@
 class keywords:
-    def __init__ (self):
+    def __init__ (self, SiriAPI):
+        self.SiriAPI = SiriAPI
         self.keywords = []
         self.keywords.append({'find': None, 'call': 'keywords.error', 'case_sensitive': False})
         return
