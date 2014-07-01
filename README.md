@@ -9,11 +9,11 @@ Siri-API is a tool which opens Siri for your own wishes WITHOUT the requirement 
 
 You need a Linux running computer (tested on Raspberry Pi) and a Squid Proxy version compiled with SSL support. These versions aren't available from official package sources, so you have to compile it by yourself. You can follow the instructions in the documentation.
 
-You can watch the demo video on http://youtu.be/b2F7PAwpjcY to see what is possible with Siri-API. I use the program for my home automation system but any other usage is possible. You just have to write your own rules and commands in Python 3. With the easy to use API it is just a game. I also provide a working squid.conf configuration file for usage with the API. If you're already running Squid Proxy for other services you HAVE to change it so, that Squid still works in your environment.
+You can watch the demo video on http://youtu.be/b2F7PAwpjcY TODO: Video of 2.0 to see what is possible with Siri-API. I use the program for my home automation system but any other usage is possible. You just have to write your own rules and commands in Python 3. With the easy to use API it is just a game. I also provide a working squid.conf configuration file for usage with the API. If you're already running Squid Proxy for other services you HAVE to change it so, that Squid still works in your environment.
 
 I tested Siri-API on an iPhone 5S with iOS 7 but it should also work with other iDevices supporting Siri and older iOS versions.
 
-You can find the documentation at https://github.com/HcDevel/Siri-API/wiki/_pages  
-The installation instructions can be found at https://github.com/HcDevel/Siri-API/wiki/Installation
+You can find the documentation at https://github.com/HcDevel/Siri-API/wiki/_pages  TODO: Move to version 2.0
+The installation instructions can be found at https://github.com/HcDevel/Siri-API/wiki/Installation TODO: Move to version 2.0
 
 If you have any problem, please report it by opening an issue in the issue tracker.
