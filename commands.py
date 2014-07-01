@@ -1,3 +1,5 @@
+#TODO: Remove this file because it is no longer required
+
 from document import document
 
 class commands:
