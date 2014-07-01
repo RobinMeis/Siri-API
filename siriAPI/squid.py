@@ -29,3 +29,6 @@ class squid:
     
     def start (self):
         raise Exception ("This feature is not available in this version")
+        
+    def stop (self):
+        raise Exception ("This feature is not available in this version")
