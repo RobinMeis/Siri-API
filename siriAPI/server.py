@@ -3,7 +3,7 @@ import socketserver
 import threading
 import time
 import os
-os.chdir(os.path.dirname(os.path.realpath(__file__)))
+os.chdir(os.path.dirname(os.path.realpath(__file__))) #Make sure to change the working directory to import html, css and pac file
 
 class _Handler(http.server.SimpleHTTPRequestHandler):
     def __init__ (self, siri_api, *args):
@@ -32,7 +32,7 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
             print ("No get parameters")
         
         
-        #Decide wether a search or the style.css was requested
+        #Decide whether a search or the style.css was requested
         if (path == "/style.css"):
             self.document = open('style.css', 'r').read()
             self.send_response(200)
@@ -62,11 +62,11 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
 
         return
         
-    #def log_message(self, format, *args): #Disable logging
-    #    pass
+    def log_message(self, format, *args): #Disable logging
+        pass
         
-    #def log_error(self, format, *args):
-    #    pass
+    def log_error(self, format, *args):
+        pass
     
 class server:
     def __init__(self, siri_api):
