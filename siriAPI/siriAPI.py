@@ -1,9 +1,8 @@
 import os
-os.chdir(os.path.dirname(os.path.realpath(__file__)))
-print (os.getcwd())
-from siriAPI.squid import squid #TODO make it universal!
-from siriAPI.server import server
-from siriAPI.keywords import keywords
+
+from .squid import squid
+from .server import server
+from .keywords import keywords
 
 class siri_api:
     def __init__ (self):
