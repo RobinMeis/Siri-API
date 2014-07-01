@@ -26,7 +26,7 @@ class keywords:
             return (False)
         
     def remove (self, id): #Remove keywords by id
-        if (id != 0): #Make it impossible to delete the not found rule
+        if (id > 0): #Make it impossible to delete the not found rule
             try:
                 del self.keywords[id]
                 return (True)
