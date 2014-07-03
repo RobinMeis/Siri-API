@@ -27,6 +27,7 @@ class squid:
     def get_port (self):
         return (self.port)
     
+    #Squid server
     def start (self):
         raise Exception ("This feature is not available in this version")
         

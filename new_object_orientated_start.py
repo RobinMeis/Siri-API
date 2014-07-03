@@ -4,7 +4,7 @@ class hans:
     def vader(self, q, zes):
         print ("Ja Klasse!")
         
-def test(q, found):
+def test(ouztput, q, found):
     print (q)
 
 dumm = hans()

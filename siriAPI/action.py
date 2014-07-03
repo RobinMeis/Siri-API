@@ -38,5 +38,9 @@ class action:
     def list (self): #List all action
         return (self.actions)
         
-    def error (self, q, wildcards_found): #Error message if not overwritten
-        print ("error")
+    def error (self, output, q, wildcards_found): #Error message if not overwritten
+        output.use_chat_style(True)
+        output.title("Error")
+        output.incoming(q)
+        output.outgoing("Sorry, I don't know how to do that")
+        output.send()

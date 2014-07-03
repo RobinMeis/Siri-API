@@ -4,6 +4,8 @@ import threading
 import time
 import os
 
+from .document import document
+
 os.chdir(os.path.dirname(os.path.realpath(__file__))) #Make sure to change the working directory to import html, css and pac file
 
 class _Handler(http.server.SimpleHTTPRequestHandler):
@@ -53,11 +55,15 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
         elif (arguments["q"] != None):
             arguments["q"] = arguments["q"].replace(self.siri_api.keyword + '+', '', 1)
             arguments["q"] = arguments["q"].replace('+', ' ')
-            self.siri_api.search.search(arguments["q"])
-            #command = commands(self)
-            #search(command).search(arguments["q"])
-            self.wfile.write(bytes('error', "utf-8"))
-            
+            self.output = document(self)
+            self.siri_api.search.search(arguments["q"], self.output)
+            if (self.output.sent == False):
+                self.output.use_chat_style (True)
+                self.output.title ('Exception')
+                self.output.incoming (arguments["q"])
+                self.output.outgoing ('You have to call output.send() after the output is ready to transfer')
+                self.output.send()
+                raise Exception ('You have to call output.send() after the output is ready to transfer')
         else:
             self.send_response(404)
             self.send_header('Content-type', 'text/html')

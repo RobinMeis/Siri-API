@@ -2,13 +2,13 @@ class search:
     def __init__ (self, siri_api):
         self.siri_api = siri_api
         
-    def search (self, q): #search for matching
+    def search (self, q, output): #search for matching
+        self.output = output
         for keywords in self.siri_api.action.actions[:]:
             for keyword in keywords['find'][:]:
                 if (isinstance(keyword, list) == False):
                     if (keyword == q):
-                        keywords['call'](q, None)
-                        return
+                        return (keywords['call'](self.output, q, None))
                 else:
                     found = True
                     have_to_follow = True
@@ -47,7 +47,7 @@ class search:
                                 wildcard_counter += 1
                                 
                     if (found == True):
-                        keywords['call'](q, wildcards_found)
+                        return (keywords['call'](self.output, q, wildcards_found))
                         return
                         
-        self.siri_api.action.actions[0]['call'](q, None)
+        return (self.siri_api.action.actions[0]['call'](self.output, q, None))
