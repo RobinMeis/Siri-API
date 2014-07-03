@@ -2,7 +2,8 @@ import os
 
 from .squid import squid
 from .server import server
-from .keywords import keywords
+from .action import action
+from .search import search
 
 class siri_api:
     def __init__ (self):
@@ -17,7 +18,8 @@ class siri_api:
         #Initialize class instances of subclasses
         self.squid = squid(self)
         self.server = server(self)
-        self.keywords = keywords(self)
+        self.action = action(self)
+        self.search = search(self)
         
     #Google domain of your country
     def set_google_domain (self, google_domain):
