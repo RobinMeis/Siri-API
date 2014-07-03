@@ -1,0 +1,4 @@
+Normally updates can be done automatically. But under some circumstances (such as new major version) also the usage of the library might have changed. If this happens, you have to migrate manually and a new version file is created.
+
+Latest.txt
+This file contains the name of the file with the information about the latest version in first line and in the second line the version number of the latest version
