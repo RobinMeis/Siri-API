@@ -1,1 +1,5 @@
-TODO Add Update service
+1.2.0;
++Test
++Another line to test
++Yeah it works!
++It's enough!
