@@ -1,4 +1,6 @@
 from siriAPI.siriAPI import siri_api
+import json
+
 def test(output, q, wildcards):
     print (q)
     output.use_chat_style(True)
@@ -49,10 +51,56 @@ def light(output, q, wildcards):
         output.send()
 
 siri_api = siri_api()
-
+siri_api.squid.set_hostname("zimmer")
 siri_api.server.set_hostname ("localhost")
-siri_api.set_google_domain (".google.de")
-siri_api.set_keyword ("Siri")
+siri_api.set_google_domain (".google.co.uk")
+siri_api.set_yahoo_domain (".uk.search.yahoo.com")
+siri_api.set_keyword ("Octopus")
+
+def licht_an(output, q, wildcards):
+    #Prozessverarbeitung
+    receivers = json.loads(output.request("http://zimmer:2525/remote/list"))
+    found = False
+    for id, val in enumerate(receivers):
+        if (receivers[val]['title'] == wildcards[0]):
+            found = True
+            output.request("http://zimmer:2525/remote/on?id=" + str(val))
+         
+    output.use_chat_style(True)
+    output.title("Lichtschalter")
+    output.incoming(q)
+    
+    if (found == False):
+        output.outgoing("Diese Lampe kenne ich nicht")
+    else:
+        output.outgoing("Sehr gerne")
+
+    output.send()
+    
+def licht_aus(output, q, wildcards):
+    #Prozessverarbeitung
+    receivers = json.loads(output.request("http://zimmer:2525/remote/list"))
+    found = False
+    for id, val in enumerate(receivers):
+        if (receivers[val]['title'] == wildcards[0]):
+            found = True
+            output.request("http://zimmer:2525/remote/off?id=" + str(val))
+         
+    output.use_chat_style(True)
+    output.title("Lichtschalter")
+    output.incoming(q)
+    
+    if (found == False):
+        if (wildcards[0] == "alles"):
+            output.outgoing('Ich habe alles ausgeschaltet')
+            output.request('http://zimmer:2525/remote/off?id=all')
+        else:
+            output.outgoing("Diese Lampe kenne ich nicht")
+    else:
+        output.outgoing("Sehr gerne")
+
+    output.send()
+    
 
 
 #self.keywords.append({'find': [['turn', '*', 'lights', '*'], ['turn', '*', 'light', '*'], ['turn', '*', 'lamp', '*'], ['turn', '*', 'lemp', '*'], ['turn', '*', 'late', '*'], ['turn', '*', 'lead', '*']], 'call': 'light'})
@@ -61,8 +109,10 @@ siri_api.set_keyword ("Siri")
 
 siri_api.action.add([['hello', '*']], hello)
 siri_api.action.add([['what does', '*', 'mean'], ['dictionary', '*']], dict)
+siri_api.action.add([['schalte das', '*', 'an'], ['schalte die', '*', 'an'], ['schalte den', '*', 'an'], ['schalte das', '*', 'ein'], ['schalte die', '*', 'ein'], ['schalte den', '*', 'ein']], licht_an)
+siri_api.action.add([['schalte das', '*', 'aus'], ['schalte die', '*', 'aus'], ['schalte den', '*', 'aus'], ['schalte das', '*', 'ab'], ['schalte die', '*', 'ab'], ['schalte den', '*', 'ab'], ['schalte', '*', 'ab'], ['schalte', '*', 'aus']], licht_aus)
 siri_api.action.add([['turn', '*', 'lights', '*'], ['turn', '*', 'light', '*'], ['turn', '*', 'lamp', '*'], ['turn', '*', 'lemp', '*'], ['turn', '*', 'late', '*'], ['turn', '*', 'lead', '*']], light)
 
 siri_api.server.start()
-input("Press key to stop server")
+input("Press key to stop server\n")
 siri_api.server.stop()

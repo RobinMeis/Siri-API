@@ -46,6 +46,11 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
             self.document = open('proxy.pac', 'r').read()
             self.document = self.document.replace('<keyword>', self.siri_api.keyword.lower(), 1)
             self.document = self.document.replace('<google_domain>', self.siri_api.google_domain, 1)
+            
+            if (self.siri_api.yahoo_domain == None):
+                self.document = self.document.replace('<yahoo_domain>', "nodomain", 1)
+            else:
+                self.document = self.document.replace('<yahoo_domain>', self.siri_api.yahoo_domain, 1)
             self.document = self.document.replace('<squid_host>', self.siri_api.squid.get_hostname(), 1)
             self.document = self.document.replace('<squid_port>', str(self.siri_api.squid.port), 1)
             self.send_response(200)
@@ -64,6 +69,17 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
                 self.output.outgoing ('You have to call output.send() after the output is ready to transfer')
                 self.output.send()
                 raise Exception ('You have to call output.send() after the output is ready to transfer')
+        elif (arguments["p"] != None):
+            arguments["p"] = arguments["p"].replace('+', ' ')
+            self.output = document(self)
+            self.siri_api.search.search(arguments["p"], self.output)
+            if (self.output.sent == False):
+                self.output.use_chat_style (True)
+                self.output.title ('Exception')
+                self.output.incoming (arguments["p"])
+                self.output.outgoing ('You have to call output.send() after the output is ready to transfer')
+                self.output.send()
+                raise Exception ('You have to call output.send() after the output is ready to transfer')
         else:
             self.send_response(404)
             self.send_header('Content-type', 'text/html')
@@ -72,11 +88,11 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
 
         return
         
-    def log_message(self, format, *args): #Disable logging
-        pass
+    #def log_message(self, format, *args): #Disable logging
+    #    pass
         
-    def log_error(self, format, *args):
-        pass
+    #def log_error(self, format, *args):
+    #    pass
     
 class server:
     def __init__(self, siri_api):

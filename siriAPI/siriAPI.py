@@ -10,6 +10,7 @@ class siri_api:
         #Userdefined variables
         self.hostname = None
         self.google_domain = None
+        self.yahoo_domain = None
         
         #Predefined variables
         self.keyword = "Siri"
@@ -31,6 +32,16 @@ class siri_api:
             
     def get_google_domain (self):
         return (self.google_domain)
+        
+    #Yahoo! domain of your country (No keyword can be defined, who even uses yahoo?)
+    def set_yahoo_domain (self, yahoo_domain):
+        if (isinstance(yahoo_domain, str)):
+            self.yahoo_domain = yahoo_domain
+        else:
+            raise Exception("Yahoo domain has to be a string")
+            
+    def get_yahoo_domain (self):
+        return (self.yahoo_domain)
         
     #Keyword
     def set_keyword (self, keyword):
