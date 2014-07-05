@@ -54,3 +54,11 @@ body {
 .message .incoming {
 	background-color:#e5e5ea;
 }
+
+.update {
+	position:relative;
+	width:100%;
+	height:400px;
+	background-color:#FF0000;
+	color:#FFFFFF;
+}

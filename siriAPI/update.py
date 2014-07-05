@@ -1,7 +1,7 @@
 import time
 import urllib.request
 
-class update:
+class update: #DONT WORRY! IT IS NOT USED IN THE CURRENT VERSION
     def __init__ (self):
         #Configuration area
         self.check_for_updated = True #Check for updates. By default true. It is secure since the update file is hosted on GitHub servers
@@ -18,10 +18,12 @@ class update:
         if (self.last_update + self.update_period < time.time()):
             self.last_update = time.time()
             f = urllib.request.urlopen(self.update_url)
-print(f.read())
+            print(f.read())
             
     def do(self):
         if (self.update_information != None):
             
-            
+    def server(self): #Returns information to the server.py
+        
+    
 test = update()
