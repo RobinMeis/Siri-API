@@ -14,6 +14,7 @@ class siri_api:
         #Predefined variables
         self.keyword = "Siri"
         self.port = 3030
+        self.case_sensitive = False
         
         #Initialize class instances of subclasses
         self.squid = squid(self)
@@ -40,5 +41,15 @@ class siri_api:
     
     def get_keyword (self):
         return (self.keyword)
+        
+    #Case sensitive
+    def set_case_sensitive (self, value): #If you want SiriAPI to be case sensitive set to True
+        if (isinstance(value, bool)):
+            self.case_sensitive = value
+        else:
+            raise Exception('Value has to be a boolean')
+
+    def get_case_sensitive (self):
+        return (self.case_sensitive)
         
     
