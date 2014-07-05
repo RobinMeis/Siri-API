@@ -15,6 +15,7 @@ class search:
                     if (isinstance(find, list) == False):
                         if (find == q):
                             return (keywords['call'](self.output, q, None))
+                            return
                     else:
                         found = True
                         have_to_follow = True
@@ -48,12 +49,14 @@ class search:
                                     wildcard_start = 0
                                     wildcard_end = 0
                                 
-                                if (keyword[-1] == "*" and keyword[-2] == search):
+                                if (find[-1] == "*" and find[-2] == search):
                                     wildcards_found[wildcard_counter + 1] = q[cursor:]
                                     wildcard_counter += 1
+                                    
                                     
                         if (found == True):
                             return (keywords['call'](self.output, q, wildcards_found))
                             return
                         
         return (self.siri_api.action.actions[0]['call'](self.output, q, None))
+        return
