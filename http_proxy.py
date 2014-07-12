@@ -3,7 +3,6 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 class HTTPRequestHandler(BaseHTTPRequestHandler):
-
     def do_GET(self):
         if (self.path == "http://siri.smartnoob.de/"):
             self.send_response(200)
@@ -16,7 +15,6 @@ class HTTPRequestHandler(BaseHTTPRequestHandler):
 
 
 if __name__ == '__main__':
-
     HTTPProxy = HTTPServer(('', 8080), HTTPRequestHandler)
     HTTPProxy.serve_forever()
     input("Press key to exit")
