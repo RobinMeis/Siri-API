@@ -52,7 +52,7 @@ def light(output, q, wildcards):
 
 siri_api = siri_api()
 siri_api.squid.set_hostname("zimmer")
-siri_api.server.set_hostname ("localhost")
+siri_api.server.set_hostname ("zimmer")
 siri_api.set_google_domain (".google.co.uk")
 siri_api.set_yahoo_domain (".yahoo.com")
 siri_api.set_keyword ("Siri")
