@@ -13,7 +13,7 @@ class search:
             for keyword in keywords['find'][:]:
                 for find in keyword[:]:
                     if (isinstance(find, list) == False):
-                        if (find == q):
+                        if (find == q_search):
                             return (keywords['call'](self.output, q, None))
                             return
                     else:
@@ -30,7 +30,7 @@ class search:
                                 have_to_follow = False
                                 wildcard_start = cursor
                             else:
-                                position = q.find(search, cursor)
+                                position = q_search.find(search, cursor)
                                 
                                 if (position == cursor):
                                     cursor += len(search) + 1
@@ -45,12 +45,12 @@ class search:
                                     break
                                 
                                 if (wildcard_end > -1):
-                                    wildcards_found[wildcard_counter] = q[wildcard_start:wildcard_end]
+                                    wildcards_found[wildcard_counter] = q_search[wildcard_start:wildcard_end]
                                     wildcard_start = 0
                                     wildcard_end = 0
                                 
                                 if (find[-1] == "*" and find[-2] == search):
-                                    wildcards_found[wildcard_counter + 1] = q[cursor:]
+                                    wildcards_found[wildcard_counter + 1] = q_search[cursor:]
                                     wildcard_counter += 1
                                     
                                     
