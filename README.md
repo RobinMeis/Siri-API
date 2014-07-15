@@ -10,6 +10,6 @@ You can watch the demo video on http://youtu.be/b2F7PAwpjcY to see what is possi
 I tested Siri-API on an iPhone 5S with iOS 7 but it should also work with other iDevices supporting Siri and older iOS versions.
 
 You can find the documentation at https://github.com/HcDevel/Siri-API/wiki/_pages  
-The installation instructions can be found at https://github.com/HcDevel/Siri-API/wiki/Installation-%28Version-1.x%29
+The installation instructions can be found at https://github.com/HcDevel/Siri-API/wiki/Installation-%28Version-1.0.x%29
 
 If you have any problem, please report it by opening an issue in the issue tracker.
