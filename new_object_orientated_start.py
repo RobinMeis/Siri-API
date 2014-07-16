@@ -62,7 +62,7 @@ def licht_an(output, q, wildcards):
     receivers = json.loads(output.request("http://zimmer:2525/remote/list"))
     found = False
     for id, val in enumerate(receivers):
-        if (receivers[val]['title'] == wildcards[0]):
+        if (receivers[val]['title'].lower() == wildcards[0]):
             found = True
             output.request("http://zimmer:2525/remote/on?id=" + str(val))
          
@@ -82,7 +82,7 @@ def licht_aus(output, q, wildcards):
     receivers = json.loads(output.request("http://zimmer:2525/remote/list"))
     found = False
     for id, val in enumerate(receivers):
-        if (receivers[val]['title'] == wildcards[0]):
+        if (receivers[val]['title'].lower() == wildcards[0]):
             found = True
             output.request("http://zimmer:2525/remote/off?id=" + str(val))
          
