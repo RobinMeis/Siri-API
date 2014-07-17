@@ -18,7 +18,7 @@ window.addEventListener("load",function() { <!-- Makes window in iOS <= 6 to ful
 	}, 0);
 });
 
-var doneurl = window.location.protocol + "//" + window.location.host + '/loaded';
+var doneurl = window.location.protocol + "//" + window.location.host + '/loaded'; //Sets the URL to done, on a browser restart or reload the action is blocked and won't be executed again
 window.history.pushState({path:doneurl},'',doneurl);
 </script>
 
