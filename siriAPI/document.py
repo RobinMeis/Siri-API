@@ -51,6 +51,18 @@ class document: #Class to generate the (HTML) output
     def outgoing (self, text): #Creates a text box displaying an outgoing message
         if (self.chat_style == True):
             self.document = self.document.replace('<replace_with_document_class_dont_remove>', '<div class="message"><div class="style outgoing">' + text + '</div></div><replace_with_document_class_dont_remove>')
+        else:
+            raise Exception ('You need to enable chatstyle whith output.use_chat_style(true) first')
+            
+    def message_full_width (self, text, background_color='#23afed', font_color='black'): #Create a message with full screen width. Set color in HTML notation
+        if (self.chat_style == True):
+            self.document = self.document.replace('<replace_with_document_class_dont_remove>', '<div class="message"><div class="full_width" style="background-color:' + background_color + '; color:' + font_color + ';">' + text + '</div></div><replace_with_document_class_dont_remove>')
+        else:
+            raise Exception ('You need to enable chatstyle whith output.use_chat_style(true) first')
+            
+    def error (self, text):
+        self.message_full_width (text, '#ed4423', 'white')
+
             
     def request (self, url): #Sends a HTTP request (useful for HTTP APIS). If you don't need the response, you can do this after calling send. This will decrease loading time in the browser
         f = urllib.request.urlopen(url)

@@ -57,6 +57,12 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
             self.send_header('Content-type', 'x-ns-proxy-autoconfig')
             self.end_headers()
             self.wfile.write(bytes(self.document, "utf-8"))
+        elif (path == "/done"):
+            self.output = document(self)
+            self.output.use_chat_style (True)
+            self.output.title ('Siri API')
+            self.output.error ('The action has already been performed. To protect it from another execution after a browser restart, you have to open it using Siri')
+            self.output.send()
         elif (arguments["q"] != None):
             arguments["q"] = arguments["q"].replace(self.siri_api.keyword + '+', '', 1)
             arguments["q"] = arguments["q"].replace('+', ' ')

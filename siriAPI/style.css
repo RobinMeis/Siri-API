@@ -55,6 +55,18 @@ body {
 	background-color:#e5e5ea;
 }
 
+.message .full_width {
+	position:relative;
+	border-radius: 50px;
+	margin:40px;
+	padding-top:15px;
+	padding-bottom:15px;
+	padding-left:40px;
+	padding-right:40px;
+	display:inline-block;
+	font-size:40pt;
+}
+
 .update {
 	position:relative;
 	width:100%;
