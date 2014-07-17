@@ -11,15 +11,15 @@ window.addEventListener("load",function() { <!-- Makes window in iOS <= 6 to ful
 	setTimeout(function(){
 		if (!navigator.userAgent.match(/(iPad|iPhone|iPod touch);.*CPU.*OS 7_\d/i)) { // Checks if iOS < 7 is running ...
 			document.getElementById("ios_fullscreen_helper").style.position = "relative"; // ... Expands div with id "ios_fullscreen_helper" ...
-			document.getElementById("ios_fullscreen_helper").style.minHeight = "100%";
+			document.getElementById("ios_fullscreen_helper").style.min-height = "100%";
 			document.getElementById("ios_scroll_space").style.height = "190px"; // ... and "ios_scroll_space" ...
 			window.scrollTo(0, 1); // ... and scrolls down to hide the status bar !-->
 			}
 	}, 0);
 });
 
-var doneurl = window.location.protocol + "//" + window.location.host + '/loaded';
-window.history.pushState({path:doneurl},'',doneurl);
+var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?loaded=true';
+window.history.pushState({path:newurl},'',newurl);
 </script>
 
 </head>
