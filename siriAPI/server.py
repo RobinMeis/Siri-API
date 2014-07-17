@@ -60,8 +60,8 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
         elif (path == "/done"):
             self.output = document(self)
             self.output.use_chat_style (True)
-            self.output.title ('Siri API')
-            self.output.error ('The action has already been performed. To protect it from another execution after a browser restart, you have to open it using Siri')
+            self.output.title ('Reload lock')
+            self.output.error ('The action has already been performed. To protect it from another execution after a browser restart, you have to open it using Siri. <a href="https://github.com/HcDevel/Siri-API/wiki/FAQ-%28Version-1.1.x%29#what-is-the-reload-lock">Read more...</a>')
             self.output.send()
         elif (arguments["q"] != None):
             arguments["q"] = arguments["q"].replace(self.siri_api.keyword + '+', '', 1)
