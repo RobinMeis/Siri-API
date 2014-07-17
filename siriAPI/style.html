@@ -6,6 +6,9 @@
 <meta name="viewport" content="minimal-ui"> <!-- Hide status bar in iOS >= 7.1.x !-->
 
 <script>
+var doneurl = window.location.protocol + "//" + window.location.host + "/done"; //Sets the URL to done, on a browser restart or reload the action is blocked and won't be executed again
+window.history.pushState({path:doneurl},'', doneurl);
+
 window.addEventListener("load",function() { <!-- Makes window in iOS <= 6 to fullscreen !-->
 	setTimeout(function(){
 		if (!navigator.userAgent.match(/(iPad|iPhone|iPod touch);.*CPU.*OS 7_\d/i)) { // Checks if iOS < 7 is running ...
