@@ -73,7 +73,7 @@ def licht_an(output, q, wildcards):
     if (found == False):
         output.outgoing("Diese Lampe kenne ich nicht")
     else:
-        output.outgoing("Sehr gerne")
+        output.outgoing("Ich habe die gewünschte Lampe eingeschaltet")
 
     output.send()
     
@@ -97,7 +97,7 @@ def licht_aus(output, q, wildcards):
         else:
             output.outgoing("Diese Lampe kenne ich nicht")
     else:
-        output.outgoing("Sehr gerne")
+        output.outgoing("Ich habe die gewünschte Lampe ausgeschaltet")
 
     output.send()
     
