@@ -101,10 +101,31 @@ def licht_aus(output, q, wildcards):
 
     output.send()
     
+def licht_toggle(output, q, wildcards):
+    #Prozessverarbeitung
+    receivers = json.loads(output.request("http://zimmer:2525/remote/list"))
+    found = False
+    for id, val in enumerate(receivers):
+        if (receivers[val]['title'].lower() == wildcards[0]):
+            found = True
+            output.request("http://zimmer:2525/remote/switch?id=" + str(val))
+         
+    output.use_chat_style(True)
+    output.title("Lichtschalter")
+    output.incoming(q)
+    
+    if (found == False):
+        output.outgoing("Diese Lampe kenne ich nicht")
+    else:
+        output.outgoing("Ich habe die gewünschte Lampe umgeschaltet")
+
+    output.send()
+    
 siri_api.action.add([['hello', '*']], hello)
 siri_api.action.add([['what does', '*', 'mean'], ['dictionary', '*']], dict)
 siri_api.action.add([['schalte das', '*', 'an'], ['schalte die', '*', 'an'], ['schalte den', '*', 'an'], ['schalte das', '*', 'ein'], ['schalte die', '*', 'ein'], ['schalte den', '*', 'ein']], licht_an)
 siri_api.action.add([['schalte das', '*', 'aus'], ['schalte die', '*', 'aus'], ['schalte den', '*', 'aus'], ['schalte das', '*', 'ab'], ['schalte die', '*', 'ab'], ['schalte den', '*', 'ab'], ['schalte', '*', 'ab'], ['schalte', '*', 'aus']], licht_aus)
+siri_api.action.add([['schalte das', '*'], ['schalte die', '*'], ['schalte den', '*'], ['schalte das', '*'], ['schalte die', '*'], ['schalte den', '*'], ['schalte', '*'], ['schalte', '*']], licht_toggle)
 siri_api.action.add([['turn', '*', 'lights', '*'], ['turn', '*', 'light', '*'], ['turn', '*', 'lamp', '*'], ['turn', '*', 'lemp', '*'], ['turn', '*', 'late', '*'], ['turn', '*', 'lead', '*']], light)
 
 siri_api.server.start()
