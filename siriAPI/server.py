@@ -54,6 +54,7 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
             self.document = self.document.replace('<squid_host>', self.siri_api.squid.get_hostname(), 2)
             self.document = self.document.replace('<squid_port>', str(self.siri_api.squid.port), 2)
             self.send_response(200)
+            self.send_header('Cache-Control', 'public,max-age=%d' % int(3600*48))
             self.send_header('Content-type', 'application/x-ns-proxy-autoconfig')
             self.end_headers()
             self.wfile.write(bytes(self.document, "utf-8"))
