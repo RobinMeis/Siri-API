@@ -12,8 +12,8 @@ class commands:
     def no_action (self, q, wildcards): #Is called if no action found
         html = document(self.connection)
         html.title("Error")
-        html.incoming(q)
-        html.outgoing("Sorry, I don't know how to do that")
+        html.outgoing(q)
+        html.incoming("Sorry, I don't know how to do that")
         html.send()
 
     ### Add your commands in this section. Feel free to change EVERYTHING below this comment ###
