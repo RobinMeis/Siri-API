@@ -69,6 +69,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         elif (arguments["q"] != None):
             arguments["q"] = arguments["q"].replace(keyword + '+', '', 1)
             arguments["q"] = arguments["q"].replace('+', ' ')
+            arguments["q"] = arguments["q"].replace('%20', ' ')
             command = commands(self)
             search(command).search(arguments["q"])
         else:
