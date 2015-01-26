@@ -1,3 +1,6 @@
+This version is not iOS8 compatible. You can find a iOS8 compatible version here: https://github.com/HcDevel/SiriAPI8
+========
+
 Siri-API
 ========
 
